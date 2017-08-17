@@ -65,41 +65,6 @@ class Auth extends FacebookAbstract{
         return $data;
     }
 
-    /**
-     *
-     */
-    public function getLeadsForms(){
-        $appId = '226402081111820';
-        $appSecret = 'b06c27fabd0a8880278d418296556e35';
-
-
-        /*
-        $name = '9R Test';
-        $pageId = '1130028110406756';
-        $pageAccessToken = 'EAADN6VeeZCwwBAA6MYxYZACtM3ZB0ipoI9ZAbJAbzul1R63eZAlOZArOeUwMJ34U3uaMPEXi4aJZBD1ffagZBocshknsIHtIMstSOatqt04pHcCDhgofda0I22FNCtSS7bYwsYxMDHFJMKZAztqDZAsi9vbwi7KIXHurIZD'; //eternal
-        */
-
-
-        ///*
-        $name = '9Round CoMo';
-        $pageId = '305065206314263';
-        $pageAccessToken = 'EAADN6VeeZCwwBAFqnw4p2PPH19nQOtXFtPHIc4w64UrcDc0tTZBTXg2AVv86lXEi8CZCiDZBK1fgfiXbXPstcYv0ZBZCZC3wZB8ATyJQBHcIOjcFFxhxZA6wpP39ZCDZCrZCHZAgYGsrKWrHcEPFhQxyYGegg1FB7GinCocQZD'; //eternal
-        //*/
-
-        $url = 'https://graph.facebook.com/v2.8/'.$pageId.'/leadgen_forms?access_token=' . $pageAccessToken;
-
-
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-
-        $result = curl_exec($ch);
-        $result = json_decode($result,true);
-    }
-
     // get leadgen_legal_content
     // $url = 'https://graph.facebook.com/v2.8/'.$pageId.'/leadgen_legal_content?access_token=' . $pageAccessToken;
 
