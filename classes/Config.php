@@ -14,7 +14,13 @@ class Config{
      */
     public function __construct()
     {
-        $this->data = require __DIR__ . '/../config.php';
+        $path = __DIR__ . '/../_config.php';
+
+        if(!file_exists($path)){
+            throw new \Exception('Config file not exists');
+        }
+
+        $this->data = require $path;
     }
 
     /**

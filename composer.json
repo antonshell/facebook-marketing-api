@@ -1,0 +1,12 @@
+{
+    "name": "antonshell/facebook-marketing-api",
+    "authors": [
+        {
+            "name": "Anton Shelyganov",
+            "email": "antonshell@yandex.ru"
+        }
+    ],
+    "require": {
+        "facebook/php-ads-sdk": "2.8.*"
+    }
+}

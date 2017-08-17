@@ -2,7 +2,9 @@
 
 namespace classes\leads;
 
-class ApiClient extends FacebookAbstract{
+use classes\FacebookBase;
+
+class ApiClient extends FacebookBase{
 
     /**
      * get facebook page access token from local database

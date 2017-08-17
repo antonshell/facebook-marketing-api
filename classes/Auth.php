@@ -2,7 +2,7 @@
 
 namespace classes;
 
-class Auth extends FacebookAbstract{
+class Auth extends FacebookBase{
 
     /**
      * get user long time access token

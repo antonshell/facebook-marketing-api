@@ -2,7 +2,7 @@
 
 namespace classes;
 
-abstract class FacebookAbstract{
+abstract class FacebookBase{
 
     protected $curlHelper;
     protected $config;
@@ -13,10 +13,12 @@ abstract class FacebookAbstract{
     public function __construct()
     {
         $this->curlHelper = new CurlHelper();
-        $this->config = new CurlHelper();
+        $this->config = new Config();
     }
 
-    protected function getAccessToken(){
+
+
+    /*protected function getAccessToken(){
         $config = Yii::$app->config->getGlobalModel();
         $userAccessTokenLong = $config->get('third.facebook_leads.user_access_token');
 
@@ -36,5 +38,5 @@ abstract class FacebookAbstract{
     protected function getBaseUrl(){
         $url =  $this->apiUrl . '/v' . $this->apiVersion . '/';
         return $url;
-    }
+    }*/
 }

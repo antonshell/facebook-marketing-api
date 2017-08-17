@@ -1,13 +1,15 @@
 <?php
 
 use classes\Config;
-use classes\marketing\ApiClient;
+use classes\marketing\FacebookAddsClient;
+
+require 'vendor/autoload.php';
 
 spl_autoload_register(function ($class_name) {
     include $class_name . '.php';
 });
 
-$apiClient = new ApiClient();
+$apiClient = new FacebookAddsClient();
 
 echo $apiClient->test();
 
