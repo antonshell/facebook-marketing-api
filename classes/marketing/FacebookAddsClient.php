@@ -127,7 +127,7 @@ class FacebookAddsClient extends FacebookBase{
 
     public function addCreative()
     {
-        $pageId = '372524659830426';
+        $pageId = $this->config->get('page_id');
         $url = 'http://yumapos.co.uk/';
         $hash = '<IMAGE_HASH>';
         $accountId = $this->config->get('account_id');

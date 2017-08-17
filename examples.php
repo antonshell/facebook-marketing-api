@@ -3,6 +3,7 @@
 use classes\marketing\FacebookAddsClient;
 use classes\marketing\FacebookAudienceClient;
 use classes\marketing\FacebookInsightsClient;
+use classes\marketing\FacebookLeadsClient;
 
 echo 'This is just example!';
 die();
@@ -87,4 +88,51 @@ $apiClient = new FacebookInsightsClient();
 // Get Campaign Insights
 $campaignId = '23842599771070253';
 $results = $apiClient->getCampaignInsights($campaignId);
+$apiClient->printArray($results);
+
+/*
+ * ###############################
+ * ### FacebookLeadsClient ###
+ * ##############################
+ *
+ */
+$apiClient = new FacebookLeadsClient();
+
+// Get Lead Forms
+$pageId = '372524659830426';
+$results = $apiClient->getLeadgenForms($pageId);
+$apiClient->printArray($results);
+
+// Get form leads
+$formId = '110805266268975';
+$results = $apiClient->getLeads($formId);
+$apiClient->printArray($results);
+
+// Check Page Subscription
+$pageId = '372524659830426';
+$results = $apiClient->checkSubscription($pageId);
+$apiClient->printArray($results);
+
+// Subscribe to page Webhooks
+$pageId = '372524659830426';
+$results = $apiClient->subscribeToPageWebhooks($pageId);
+$apiClient->printArray($results);
+
+// Create Legal Content
+$pageId = '372524659830426';
+$results = $apiClient->createLegalContent($pageId);
+$apiClient->printArray($results);
+
+// Create Context Card
+$pageId = '372524659830426';
+$results = $apiClient->createContextCard($pageId);
+$apiClient->printArray($results);
+
+// Create Leadgen Form
+$pageId = '372524659830426';
+$legalContentId = '344540259314932';
+$contextCardId = '1920764724831390';
+$formName = 'LeadAds Form Name';
+$actionUrl = 'https://www.9round.com/';
+$results = $apiClient->createLeadgenForm($pageId,$legalContentId,$contextCardId,$formName,$actionUrl);
 $apiClient->printArray($results);

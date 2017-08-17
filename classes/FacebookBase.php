@@ -47,6 +47,11 @@ abstract class FacebookBase{
         }
     }
 
+    protected function getBaseUrl(){
+        $url =  $this->apiUrl . '/v' . $this->apiVersion . '/';
+        return $url;
+    }
+
 
     /*protected function getAccessToken(){
         $config = Yii::$app->config->getGlobalModel();
