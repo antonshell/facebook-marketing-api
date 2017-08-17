@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0a2f63b83ceb38ea59e8b1748a9bef8d",
-    "content-hash": "8bef9cbab380b5cf43dea77e321a73b0",
+    "hash": "3ce57b61412bf596938b8b8efe83283e",
+    "content-hash": "0b92827368c771518fcb4ecc15b367d5",
     "packages": [
         {
             "name": "facebook/php-ads-sdk",
-            "version": "2.8.2",
+            "version": "2.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/facebook-php-ads-sdk.git",
-                "reference": "d51193b19d730ae9274d45540986e1ac311b074d"
+                "reference": "bfea2cc94565283476ed689889486f9fa305d604"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/facebook-php-ads-sdk/zipball/d51193b19d730ae9274d45540986e1ac311b074d",
-                "reference": "d51193b19d730ae9274d45540986e1ac311b074d",
+                "url": "https://api.github.com/repos/facebook/facebook-php-ads-sdk/zipball/bfea2cc94565283476ed689889486f9fa305d604",
+                "reference": "bfea2cc94565283476ed689889486f9fa305d604",
                 "shasum": ""
             },
             "require-dev": {
@@ -42,7 +42,7 @@
                 "facebook",
                 "sdk"
             ],
-            "time": "2017-04-13 20:43:54"
+            "time": "2017-07-18 21:11:11"
         }
     ],
     "packages-dev": [],

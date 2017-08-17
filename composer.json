@@ -7,6 +7,6 @@
         }
     ],
     "require": {
-        "facebook/php-ads-sdk": "2.8.*"
+        "facebook/php-ads-sdk": "2.10.*"
     }
 }

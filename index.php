@@ -2,6 +2,8 @@
 
 use classes\Config;
 use classes\marketing\FacebookAddsClient;
+use classes\marketing\FacebookAudienceClient;
+use classes\marketing\FacebookInsightsClient;
 
 require 'vendor/autoload.php';
 
@@ -9,8 +11,10 @@ spl_autoload_register(function ($class_name) {
     include $class_name . '.php';
 });
 
-$apiClient = new FacebookAddsClient();
+$apiClient = new FacebookInsightsClient();
 
-echo $apiClient->test();
+// Get Campaign Insights
+$campaignId = '23842599771070253';
+$results = $apiClient->getCampaignInsights($campaignId);
+$apiClient->printArray($results);
 
-echo 'facebook-marketing-api';
