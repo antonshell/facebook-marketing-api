@@ -12,16 +12,12 @@ spl_autoload_register(function ($class_name) {
     include $class_name . '.php';
 });
 
-$apiClient = new FacebookLeadsClient();
+$apiClient = new FacebookAddsClient();
 
-// Create Legal Content
-$pageId = '372524659830426';
-$legalContentId = '344540259314932';
-$contextCardId = '1920764724831390';
-$formName = 'LeadAds Form Name';
-$actionUrl = 'https://www.9round.com/';
-$results = $apiClient->createLeadgenForm($pageId,$legalContentId,$contextCardId,$formName,$actionUrl);
-$apiClient->printArray($results);
+// Create Campaign
+$campaignName = 'Campaign ' . date('Y-m-d H:i:s');
+$apiClient->createCampaign($campaignName);
+
 
 
 
