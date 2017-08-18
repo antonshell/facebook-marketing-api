@@ -6,6 +6,18 @@ There is demo app for Facebook Marketing Api. There is custom api client that eo
 
 Implemented/tested some examples from documentation.
 
+#Instalation
+
+1. Clone repository
+```
+git clone https://github.com/antonshell/facebook-marketing-api
+```
+2. Copy _config.sample.php to ```_config.php```
+3. Set params to ```_config.php```
+4. Modify ```index.php``` as you need. See ```examples.php``` for more details
+
+5. Run ```php index.php```
+
 Facebook Marketing API Documentation:
 
 [https://developers.facebook.com/docs/marketing-apis](https://developers.facebook.com/docs/marketing-apis) 
