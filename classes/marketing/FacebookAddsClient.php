@@ -125,6 +125,9 @@ class FacebookAddsClient extends FacebookBase{
         return $data;
     }
 
+    /**
+     * @return mixed
+     */
     public function addCreative()
     {
         $pageId = $this->config->get('page_id');
@@ -160,6 +163,9 @@ class FacebookAddsClient extends FacebookBase{
         return $data;
     }
 
+    /**
+     * @return mixed
+     */
     public function createAdd(){
         $name = 'My Ad';
         $addSetId = '23842599771120253';

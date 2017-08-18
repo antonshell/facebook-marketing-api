@@ -2,7 +2,22 @@
 
 namespace classes;
 
+/**
+ * Class CurlHelper
+ * @package classes
+ */
 class CurlHelper{
+
+    public $config;
+
+    /**
+     * CurlHelper constructor.
+     */
+    public function __construct()
+    {
+        $this->config = new Config();
+    }
+
     /**
      * @param $url
      * @param $headers
@@ -13,13 +28,10 @@ class CurlHelper{
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-
-        /*if(YII_ENV != 'prod'){
+        if(!$this->enableSsl()){
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        }*/
+        }
 
         if(count($headers)){
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -45,13 +57,10 @@ class CurlHelper{
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-
-        /*if(YII_ENV != 'prod'){
+        if(!$this->enableSsl()){
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        }*/
+        }
 
         if(count($headers)){
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -59,5 +68,12 @@ class CurlHelper{
 
         $result = curl_exec($ch);
         return $result;
+    }
+
+    /**
+     * @return mixed
+     */
+    private function enableSsl(){
+        return $this->config->get('curl_enable_ssl');
     }
 }

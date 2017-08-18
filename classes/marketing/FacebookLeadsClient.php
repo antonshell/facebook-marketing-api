@@ -31,6 +31,10 @@ use FacebookAds\Object\Values\AdSetBillingEventValues;
 use FacebookAds\Object\Values\AdSetOptimizationGoalValues;
 use FacebookAds\Object\Values\CampaignObjectiveValues;
 
+/**
+ * Class FacebookLeadsClient
+ * @package classes\marketing
+ */
 class FacebookLeadsClient extends FacebookBase{
 
     /**
@@ -55,6 +59,10 @@ class FacebookLeadsClient extends FacebookBase{
         return $data;
     }
 
+    /**
+     * @param $pageId
+     * @return bool
+     */
     public function checkSubscription($pageId){
         $pageAccessToken = $this->config->get('access_token');
 
@@ -70,6 +78,10 @@ class FacebookLeadsClient extends FacebookBase{
         return false;
     }
 
+    /**
+     * @param $pageId
+     * @return mixed
+     */
     public function subscribeToPageWebhooks($pageId){
         $pageAccessToken = $this->config->get('access_token');
 
@@ -84,6 +96,10 @@ class FacebookLeadsClient extends FacebookBase{
         return $result['success'];
     }
 
+    /**
+     * @param $pageId
+     * @return array|null
+     */
     public function createLegalContent($pageId){
         $params = [
             'privacy_policy' => [
@@ -116,6 +132,10 @@ class FacebookLeadsClient extends FacebookBase{
         return $data;
     }
 
+    /**
+     * @param $pageId
+     * @return array|null
+     */
     public function createContextCard($pageId){
         $params = [
             'title' => 'title',
@@ -136,6 +156,14 @@ class FacebookLeadsClient extends FacebookBase{
         return $data;
     }
 
+    /**
+     * @param $pageId
+     * @param $legalContentId
+     * @param $contextCardId
+     * @param $formName
+     * @param $actionUrl
+     * @return mixed
+     */
     public function createLeadgenForm($pageId,$legalContentId,$contextCardId,$formName, $actionUrl){
         $form = new LeadgenForm(null, $pageId);
         $form->setData([

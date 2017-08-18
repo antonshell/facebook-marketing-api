@@ -4,15 +4,23 @@ namespace classes;
 
 use FacebookAds\Api;
 
+/**
+ * Class FacebookBase
+ * @package classes
+ */
 abstract class FacebookBase{
 
     protected $curlHelper;
     protected $config;
+    protected $facebookApi;
 
     protected $apiUrl = 'https://graph.facebook.com';
     //protected $apiVersion = '2.8';
     protected $apiVersion = '2.10';
 
+    /**
+     * FacebookBase constructor.
+     */
     public function __construct()
     {
         $this->curlHelper = new CurlHelper();
@@ -22,6 +30,9 @@ abstract class FacebookBase{
 
     }
 
+    /**
+     * @param $array
+     */
     public function printArray($array){
         echo '<pre>';
         print_r($array);
@@ -36,9 +47,12 @@ abstract class FacebookBase{
         Api::init($app_id, $app_secret, $access_token);
 
         // The Api object is now available trough singleton
-        $api = Api::instance();
+        $this->facebookApi = Api::instance();
     }
 
+    /**
+     * @param $message
+     */
     protected function debug($message){
         $debugEnabled = $this->config->get('debug');
 
@@ -47,31 +61,18 @@ abstract class FacebookBase{
         }
     }
 
+    /**
+     * @return string
+     */
     protected function getBaseUrl(){
         $url =  $this->apiUrl . '/v' . $this->apiVersion . '/';
         return $url;
     }
 
-
-    /*protected function getAccessToken(){
-        $config = Yii::$app->config->getGlobalModel();
-        $userAccessTokenLong = $config->get('third.facebook_leads.user_access_token');
-
-        return $userAccessTokenLong;
+    /**
+     * @return string
+     */
+    protected function getAccessToken(){
+        return $this->config->get('access_token');
     }
-
-    protected function getConfig(){
-        $configModel = Yii::$app->config->getGlobalModel();
-        $config = [
-            'appId' => $configModel->get('third.facebook_leads.app_id'),
-            'appSecret' => $configModel->get('third.facebook_leads.app_secret')
-        ];
-
-        return $config;
-    }
-
-    protected function getBaseUrl(){
-        $url =  $this->apiUrl . '/v' . $this->apiVersion . '/';
-        return $url;
-    }*/
 }

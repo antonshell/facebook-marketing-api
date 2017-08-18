@@ -13,9 +13,10 @@ class Auth extends FacebookBase{
      * @return mixed
      */
     public function getLongTimeAccessToken($userAccessTokenShort){
-        $config = $this->getConfig();
+        $appId = $this->config->get('app_id');
+        $appSecret = $this->config->get('app_secret');
 
-        $url = $this->getBaseUrl() . 'oauth/access_token?grant_type=fb_exchange_token&client_id=' . $config['appId'] . '&client_secret=' . $config['appSecret'] . '&fb_exchange_token=' . $userAccessTokenShort;
+        $url = $this->getBaseUrl() . 'oauth/access_token?grant_type=fb_exchange_token&client_id=' . $appId . '&client_secret=' . $appSecret . '&fb_exchange_token=' . $userAccessTokenShort;
 
         $result = $this->curlHelper->sendGetRequest($url);
         $result = json_decode($result,true);
@@ -64,15 +65,4 @@ class Auth extends FacebookBase{
 
         return $data;
     }
-
-    // get leadgen_legal_content
-    // $url = 'https://graph.facebook.com/v2.8/'.$pageId.'/leadgen_legal_content?access_token=' . $pageAccessToken;
-
-    public function postLegalContent(){
-
-    }
-
-
-
-
 }
